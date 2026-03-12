@@ -1,0 +1,15 @@
+pwd
+mkdir ejercicios1
+mkdir ejercicios2
+cd ejercicios1
+kate file1.dat &
+cp file1.dat ../ejercicios2/file1_copia.dat
+cd ../ejercicios2/
+ls
+cat file1_copia.dat
+mv file1_copia.dat file1_movido.dat
+cd ..
+ls
+pwd
+rm -Rf ejercicios2
+

@@ -1,0 +1,13 @@
+cd
+mkdir metodos_numericos
+cd metodos_numericos
+mkdir guias
+cd guias
+mv ../../Descargas/guia1.pdf .
+cp guia1.pdf Copia.pdf
+ls -l
+du -h
+rm Copia.pdf
+pwd
+
+

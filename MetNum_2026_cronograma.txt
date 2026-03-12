@@ -1,0 +1,200 @@
+Comienzo de clases: martes 10/03/2025
+
+Fin de clases: 19/06/2025
+
+
+Horarios y aulas:
+
+
+Martes y jueves.
+
+Teóricos: de 9 a 11 hs.
+
+Prácticos: de 11 a 13 hs.
+
+
+
+Fechas de parciales tentativas 2026:
+
+
+Primer parcial: 	Jueves 16/04 
+Segundo parcial:	Martes 19/05
+Tercer parcial:	Jueves 11/06
+Recuperatorio:		Jueves 18/06
+
+
+			
+***********************************************************************    
+***********************************************************************    
+    
+ Cronograma de teóricos:
+ 
+ 				(Tema 1)
+ 
+ Clase 1: martes 10/03: 	Intro (Algoritmo ; Análisis Numérico ; Pi ; 
+ 				Lenguajes de programación ; Sistemas operativos)	
+
+ Clase 2: jueves 12/03:	Sistema posicional ; cambio de base.
+
+
+ Clase 3: martes 17/03:	Punto fijo.
+
+
+ Clase 4: jueves 19/03:	Punto flotante.
+
+
+ Clase 5: jueves 26/03:	Propagación de errores. 
+ 
+ 
+ 
+ 				(Tema 2)
+ 				
+ Clase 6: martes 31/03:	Búsqueda de raíces  (Intro; biseccion).
+
+
+ Clase 7: martes 07/04:	Búsqueda de raíces  (secante; Regula Falsi; Newton).
+ 
+ 				Práctico: COMENZAR GUIA 2.
+ 				
+
+ Clase 8: jueves 09/04:	Búsqueda de raíces  (Punto fijo; Error convergencia; 
+ 				Newton modificado. Ejemplo y conclusiones).
+
+
+
+ 				(Tema 3)
+ 				
+Clase 9: martes 14/04: 	Interpolacion polinomial (Lagrange, Horner). 
+				Consulta.
+ 
+ 
+
+***********************************************************
+ Clase10: jueves 16/04:	PARCIAL 1
+***********************************************************
+
+ 
+ Clase12: martes 21/04:	Interpolacion polinomial (Newton; Runge y Chebyshev; Splines). 
+  
+  				Práctico: COMENZAR GUIA 3 (polinomios).
+  
+  
+  				(Tema 4)
+  				
+ Clase13: jueves 23/04:	Cuadrados minimos. Derivadas (parte 1)
+ 
+   				Práctico:  GUIA 3 (polinomios).
+
+ 
+ 				(Tema 5)
+ 				
+ Clase14: martes 28/04:	Derivadas (parte 2). 
+ 				Integrales (Intro).		
+ 
+    				Práctico:  GUIA 4 (cuadrados minimos).
+
+
+                       
+  				(Tema 6)
+ 
+ Clase15: jueves 30/04:	Integrales (punto medio; trapecio; Simpson).
+ 
+     				Práctico:  GUIA 5 (Derivadas).
+
+
+
+ Clase16: martes 05/05:	Integrales (Newton-cotes; Simpson compuesta).
+
+     				Práctico:  GUIA 5 (Derivadas).
+     				Práctico:  GUIA 6 (Integrales).
+ 
+ 
+ 
+ Clase17: jueves 07/05:	Integrales (trapecio compuesta; punto medio compuesta; Gauss). 	
+                     
+      				Práctico:  GUIA 6 (Integrales).
+
+
+ 
+ Clase18: martes 12/05:	Integrales (integrales multiples). ODE (introduccion).
+
+     				Práctico:  GUIA 6 (Integrales).
+ 
+
+ 
+
+ Clase19: jueves 14/05:	ODE (Intro2; Euler).
+
+    				Práctico:  GUIA 6 (Integrales).
+ 
+
+
+***********************************************************
+ Clase20: martes 19/05:	PARCIAL 2
+***********************************************************
+
+
+
+ Clase21: jueves 21/05: 	ODE (Taylor; RK; orden superior).		
+
+    				Práctico:  GUIA 7 (ODEs).
+
+ 
+ ***********************************************************
+ Clase22: martes 26/05:	  *** semana de Mayo ***
+ 
+ Clase23: jueves 28/05:	  *** semana de Mayo ***
+ ***********************************************************
+ 
+ 
+ Clase24: martes 02/06:	ODE (frontera; repaso). Algebra lineal.  
+
+    				Práctico:  GUIA 7 (ODEs).
+
+
+ Clase25: jueves 04/06:	Algebra lineal.  
+
+    				Práctico:  GUIA 7 (ODEs). Guía 8 (Algebra).
+  
+ Clase26: martes 09/06:	Monte Carlo.	
+ 
+***********************************************************
+ Clase27: jueves 11/06:	PARCIAL 3 
+************************************************************
+
+ Clase28: martes 16/06:	Charlitas profes	
+
+
+***********************************************************
+ Clase29: jueves 18/06:	RECUPERATORIO			
+***********************************************************
+
+
+ 
+ ***********************************************************
+ 
+ ***********************************************************
+ 
+ ***********************************************************
+ 
+
+ Condiciones de Regularidad
+ 
+ 
+* Asistencia de al menos el 70% de las clases teóricas y prácticas.
+
+* Aprobar 2 (dos) prácticos (de tres) con calificación mayor o igual a 4 (cuatro).
+
+
+
+Condiciones de Promoción
+
+
+* Asistencia de al menos el 80% de las clases teóricas y prácticas.
+
+* Aprobar 3 (tres) prácticos con calificación mayor o igual a 6 (seis). 
+El promedio de los tres prácticos aprobados deberá ser mayor o igual a 7 (siete). 
+Se podrá recuperar un parcial.
+
+
+

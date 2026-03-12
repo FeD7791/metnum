@@ -1,0 +1,21 @@
+Instrucciones para elaborar un programa con varios modulos.
+
+Estructura del modul0:
+
+
+module name
+    implicit none
+    <Espacio para variables>
+contains
+    <Espacio para funciones y subrutinas>
+end module name
+
+Uso en el programa principal:
+
+
+program main
+    use <nombre del modulo> ! Siempre antes del implicit none
+    implicit none
+...
+
+end program main

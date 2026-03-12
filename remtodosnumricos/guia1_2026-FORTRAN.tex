@@ -1,0 +1,640 @@
+\documentclass[a4paper,10pt]{article}
+
+\usepackage[left=1.4cm,top=1.2cm,bottom=1.5cm,right=1.2cm]{geometry}%
+
+\usepackage[latin1]{inputenc}
+\usepackage{amsmath}
+%\usepackage{babel}
+\topmargin 0truecm
+\textheight 23truecm
+\textwidth 16.5truecm
+\oddsidemargin 0truecm
+\parskip 1truemm
+%\parsep 1truemm
+\parindent 0em
+\usepackage{amssymb}
+
+\def\d{\,{\rm d}}
+
+\def\RR{{\mathbb R}}
+\def\CC{{\mathbb C}}
+\def\NN{{\mathbb N}}
+\def\ZZ{{\mathbb Z}}
+\def\EE{{\mathbb E}}
+\newcounter{problema}
+\newcommand{\prob}[1]{\vspace{0.33cm}\stepcounter{problema}
+                 \noindent{\bf Problema \arabic{problema}:}{\it #1}}
+
+\begin{document}
+\renewcommand{\labelenumi}{\bf \alph{enumi})}
+\renewcommand{\labelenumii}{\alph{enumi}$_\arabic{enumii}$)}
+\thispagestyle{empty}
+\begin{center}
+{\large {\bf M\'etodos Num\'ericos}}\\
+
+
+\vspace*{1.5cm} 
+\rule{0em}{2.em}{\bf Gu\'{i}a 1} \\ Marzo de 2024
+\end{center}
+\vspace*{.5cm} 
+
+
+\noindent
+{\bf Nota:} La información, en la computadora que use, es guardada
+de forma permanente, en lo que se suele llamar disco rígido.
+Es su responsabilidad mantener un sistema ordenado de trabajo,
+donde la información está guardada en un árbol natural
+de organización.
+Dependiendo del sistema operativo, cuando se inicia una ventana
+de trabajo o terminal, se puede estar en la ubicación inicial,
+que genéricamente llamaremos \emph{home}, 
+que por ejemplo podría ser:
+
+
+{\tt /home/jaimito}
+
+si se está en linux (ubuntu).
+En el lugar donde en el ejemplo aparece {\tt jaimito}
+debería aparecer su nombre de usuario.
+De aquí en adelante asumimos que trabaja con un sistema operativo linux,
+como por ejemplo \emph{ubuntu}.
+
+
+
+%\bigskip
+
+%\newpage
+
+\noindent {\bf Ejercicios de linux}
+
+
+%1
+\prob{} En una terminal, estando en su directorio inicial de trabajo (home),
+cree un directorio nuevo llamado {\tt metodos\_numericos};
+a propósito sin acento. 
+Cambie de directorio desde el inicial al directorio
+{\tt metodos\_numericos}.
+En ese directorio cree otro directorio llamado {\tt guias};
+a propósito sin acento. 
+Descargue desde el
+navegador el archivo de esta gu\'ia y mueva el mismo al nuevo directorio.
+Cambie el nombre del archivo a {\em guia1.pdf}\, y copie el archivo a otro 
+con nombre {\em Copia.pdf}.  Luego, liste el contenido del
+directorio y verifique los nombres y el tama\~no y fecha de los mismos.
+Averig\"ue qu\'e espacio ocupa el directorio usando el comando {\tt du -h}.
+Finalmente, borre el archivo {\em Copia.pdf}.
+Para ver en qué lugar del árbol de directorio está, ejecute el comando
+{\tt pwd}.
+
+
+%2
+\prob{} 
+\begin{itemize}
+
+\item Aseg\'urese de que se encuentra en el directorio {\tt metodos\_numericos}  (pwd).
+ 
+\item Cree 2 carpetas: ejercicios1, ejercicios2 (utilizando ``mkdir'').
+ 
+\item Acceda a ejercicios1 (utilizando ``cd'').
+ 
+\item All\'i, cree un archivo de texto llamado "file1.dat" con la frase "Hola mundo" (utilizando ``kate'').
+Aseg\'urese de guardarlo.
+ 
+\item Sin moverse del  directorio ejercicios1, haga una copia del archivo "file1.dat" dentro de ejercicios2, 
+y ll\'amela "file1\_copia.dat" (utilizando ``cp'').
+ 
+\item Acceda al  directorio ejercicios2 (con ``cd'') y verifique la existencia del archivo "file1\_copia.dat" 
+en ese directorio (con ``ls'').
+ 
+\item Muestre el  contenido del archivo usando el  comando "cat".
+ 
+ 
+\item Cambie el nombre del archivo "file1\_copia.dat" a "file1\_movido.dat", utilizando ``mv''.
+ 
+ 
+\item Ub\'iquese en el directorio {\tt metodos\_numericos}, haciendo ``cd ..''. Haga ``ls'' 
+(para ver el contenido) y ``pwd''. 
+
+\item Borre el directorio ``ejercicios2'' con todo su contenido, haciendo ``rm -Rf ejercicios2''.
+ 
+\end{itemize}
+
+
+
+%\bigskip
+
+%\newpage
+
+\noindent {\bf Ejercicios de gnuplot}
+
+%3
+\prob{} Utilice el programa {\em gnuplot} para graficar la funci\'on
+$f(x) = \sin (2\pi x)$, para $x  \in [0:5]$. Ajuste la cantidad de puntos
+que usa gnuplot para graficar ({\em samples}) a 500 para mejorar la calidad
+del gr\'afico. D\'e nombre a los ejes, t\'itulo al gr\'afico y defina la
+leyenda para que aparezca $f(x)$.
+
+%4
+\prob{} Abra una terminal y realice las siguientes acciones:
+\begin{enumerate}
+\item 
+Vaya al directorio:
+
+{\tt /home/jaimito/metodos\_numericos/}
+
+Donde, en lugar de ``jaimito'', debe ser el nombre de su usuario. Allí cree el directorio
+
+{\tt guia1}
+
+
+\item En ese nuevo directorio ejecute el editor {\tt kate} liberando
+la línea de comandos (utilice el símbolo $\&$).
+
+\item En el editor de texto ingrese los siguientes datos en tres columnas,
+separados por dos espacios:
+\begin{center}
+\begin{tabular}{ccc}
+0.0  & 1.0  & 1.2\\
+1.0  & 1.5  & 1.6  \\
+2.0  & 2.0  & 2.0 \\
+3.0  & 2.5  & 2.4 \\  
+\end{tabular}
+\end{center}
+\noindent
+Grabe esta tabla en el archivo {\em datos.dat}. 
+%Aseg\'urese que est\'e en el directorio {\em MetNum}. 
+No cierre el editor. 
+
+\item Ahora utilice {\tt gnuplot} para graficar la 2da y la 3era columna versus
+la primera. Grafique usando s\'olo puntos. En el mismo gr\'afico incluya las funciones 
+$y = 0.5 x + 1$ y $y=0.4 x + 1.2$. 
+Nombre al eje horizontal {\em x} y al vertical {\em y}. Habilite la grilla. 
+Titule el gr\'afico {\em Funciones lineales}. Cree archivos
+de salida en formato png, pdf y postscript color y blanco y negro (n\'ombrelos 
+p4.png, p4.pdf, p4\_color.ps y p4\_byn.ps respectivamente). 
+Abra otra terminal y con la aplicaci\'on {\tt  okular} visualice
+los archivos de salida, a medida que los va generando). Luego, experimente graficar 
+cambiando el tama\~no de los puntos y el grosor de las l\'ineas, etc. 
+
+
+\item Liste los archivos del directorio mostrando su tama\~no y fecha. 
+Averigüe qu\'e espacio ocupan los archivos.
+Finalmente, cierre la ventana del editor. 
+Borre los archivos postscript y cierre la terminal.
+
+\end{enumerate}
+
+
+
+%\bigskip
+
+%\newpage
+
+\noindent {\bf Ejercicios de Fortran}
+
+%5
+\prob{} 
+Evaluar con un programa {\sc Fortran} las siguientes operaciones
+matemáticas. Realice todas las operaciones en forma secuencial en un mismo programa.
+Imprima por pantalla cada operaci\'on y su resultado. 
+
+\begin{enumerate}
+\item {\tt A =  5 / 2 + 20/ 6} 
+\item {\tt B =  4 * 6 / 2 - 15 / 2}
+\item {\tt C = 5 * 15 / 2 / (4 - 2)} 
+\item {\tt D = 1 + 1/4}
+\item {\tt E = 1. + 1/4}
+\item {\tt F = 1 + 1./4}
+\item {\tt G = 1. + 1./4.}
+\end{enumerate}
+
+%6
+\prob{} Escriba un programa {\sc Fortran}
+que pida dos n\'umeros reales e imprima en la
+pantalla el mayor de ellos. El programa debe indicar si los n\'umeros son iguales.
+
+%7
+\prob{} Escriba un programa {\sc Fortran}
+que pida un n\'umero entero y determine si es
+m\'ultiplo de 2 y de 5.
+
+
+
+%8
+\prob{} Escriba una programa que ingrese los coeficientes $A$, $B$ y $C$ de un
+polinomio real de segundo grado ($A x^2 + B x + C$), calcule e imprima en
+pantalla las dos ra\'ices del polinomio en formato complejo $a + i b$, sin
+utilizar algebra compleja.
+
+
+
+
+%9
+\prob{} Implementar un programa Fortran para evaluar la suma (en precisi\'on
+simple)
+\[
+\sum_{n=1}^{10\,000\,000} \frac{1}{n}
+\]
+\noindent
+primero, en el orden usual, y luego, en el orden opuesto. Explique las diferencias
+obtenidas  e indique cu\'al es m\'as preciso y su justificaci\'on.
+
+
+
+%10
+\prob{} Dise\~nar una funci\'on que calcule la potencia en\'esima de un n\'umero, es decir que devuelva $X^n$ para $X$ real y $n$ entero. Realice un programa que utilice la funci\'on e imprima en pantalla las primeras 5 potencias naturales de un n\'umero ingresado. 
+
+Usar módulos, es decir, utilizar un archivo ``parametros.f90'' para definir la precisión, otro archivo ``funciones.f90'', para la función y otro archivo para el programa principal. Emplear un script de compilación (``compilar.sh''). El mismo contendrá los comandos necesarios para compliar todo:
+
+gfortran parametros.f90 funciones.f90 prob10.f90 -o prob10.x
+
+y deberá ser un archivo ejecutable. Para esto, en la consola, escribir: chmod u+x compilar.sh
+
+
+
+
+%11
+\prob{} Escriba un programa, que utilizando una subrutina, multiplique un
+vector de $N$ elementos, por una matriz de $N\times N$. El programa debe
+preguntar el valor de $N$ y luego definir los arreglos, y
+darle valores iniciales tal que, la matriz sea triangular superior, con todos
+sus elementos igual a 1, excepto los de la diagonal que toman valor 3.
+El vector tendr\'a todos sus elementos pares igual a 2, y los impares igual a 3. 
+Utilizar módulos.
+
+
+%12
+\prob{}
+Se determinaron 9 mediciones de concentraciones de fósforo en un campo y los 
+datos obtenidos fueron:
+
+479.80 ; 499.10 ; 510.20 ; 508.60; 503.30 ; 501.20; 507.30 ; 499.90 y 468.60.
+
+\begin{enumerate}
+
+\item Escriba estos valores en un archivo, en forma de columna y llame a este archivo 
+\textit{datos1.dat}.
+
+\item Escriba un programa en fortran que pregunte el n\'umero de datos ($9$ en este caso), 
+a ser ingresado por teclado, que lea del archivo \textit{datos1.dat} todos los valores
+guard\'andolos en un vector y que luego calcule y muestre por pantalla el promedio 
+y la desviaci\'on est\'andard de los datos. Adem\'as de mostrar el resultado por pantalla, 
+el programa debe escribirlo en un archivo llamado \textit{resultados1.dat}. 
+El programa debe llamarse \textit{prob12.f90}
+
+\item Utilice el programa para calcular el promedio y  desviaci\'on est\'andard de los datos
+mencionados.
+
+
+\end{enumerate}
+
+Nota: 
+
+El promedio se calcula de la siguiente forma:
+
+\begin{equation}
+ \overline{x} = \frac{1}{n} \sum_{i=1}^{n} x_i
+\end{equation}
+
+\noindent siendo $n$ el n\'umero de datos.
+
+
+La  desviaci\'on est\'andard se calcula de la siguiente forma:
+
+\begin{equation}
+ \sigma = \sqrt{ \frac{1}{n-1} \sum_{i=1}^{n} ( x_i - \overline{x})^2 }
+\end{equation}
+
+\noindent siendo $n$ el n\'umero de datos.
+
+Alternativamente se puede utilizar la siguiente f\'ormula:
+
+
+\begin{equation}
+\sigma = \sqrt{ \frac{1}{(n-1)} ( \sum_{i=1}^{n}  x_i^2 -  n \overline{x}^2 )}
+\end{equation}
+
+
+
+
+%13
+\prob{} Escriba un programa que permita convertir n\'umeros naturales con base 
+$10$ a la base $b <= 16$. El programa
+debe pedir como entrada $b$ y el n\'umero natural a convertir (que debe estar en
+base 10). 
+Utilice {\tt SELECT CASE} para asignar los d\'igitos (del resultado en base $b$). 
+Utilice {\tt CASE DEFAULT} (para asignar los d\'igitos del 0 al 9).
+
+
+
+
+%14
+\prob{} Efect\'ue con un programa en Fortran en simple precisi\'on los siguientes
+c\'alculos, matem\'aticamente equivalentes,
+
+\begin{enumerate}
+\item $1\,000\,000 \times 0.1$
+
+\item $\sum_{n=1}^{1\,000\,000} 0.1$
+
+\item $\sum_{m=1}^{1\,000} \left( \sum_{n=1}^{1\,000} 0.1\right)$
+
+
+\end{enumerate}
+\noindent
+
+{ Explique las diferencias obtenidas entre resultados finales de a), b) y c) y muestre que el error relativo en b) es del orden
+del 1\%, pero es mucho menor en c). Resalte la conclusi\'on de este ejercicio. }
+
+
+\begin{enumerate}
+\item[{\bf d)}] En los puntos b) y c), vaya guardando con un write (cada 1000 iteraciones en el caso b, 
+y en todas las iteraciones de la suma externa en c), los errores parciales en un archivo de datos.  
+La primera columna con los valores de los \'indices (multiplicados por 1000 para el caso c) de las sumas 
+y segunda columna con el error parcial, i.e., la diferencia entre el valor de la respectiva 
+suma parcial y el valor exacto ($i*0.1$).  
+Grafique usando {\em gnuplot}, los errores parciales de b) y c) superpuestas, en funci\'on del 
+\'indice correspondiente, en un archivo``prob14.pdf" en color, con t\'itulo de gr\'afica``Problema 14, 
+Gu\'ia 1", con nombres adecuados en los ejes y con leyendas adecuadas. 
+Los datos del b), graficarla con puntos de tama\~no 0.75 (el default es 1), y los de c) con l\'inea
+de grosor 1.6 (el default es tambi\'en 1). 
+Luego de ver c\'omo le queda la gr\'afica en escala lineal, cambie el eje x, 
+a escala logar\'itmica. Seg\'un su criterio, en qu\'e escala se 
+aprecia mejor el resultado del problema para su an\'alisis? Puede al eje $y$ darle escala 
+logar\'itmica? Pruebe qu\'e pasa si lo hace.
+Analice la conveniencia en general del uso de escalas logar\'itmicas.
+
+Finalmente deje el archivo grabado en escala lineal en $y$, y logar\'itmica en $x$, y diga el 
+tama\~no del mismo tanto en bytes como Kbytes. 
+
+
+\end{enumerate}
+ 
+
+%15
+\prob{}
+
+Calcular sin(x), seg\'un su desarrollo en series de Taylor, teniendo en cuenta que:
+
+
+\begin{equation}
+ sen(x) = \sum_{n=0}^{\infty} \frac{(-1)^n}{(2n+1)!} x^{2n+1} 
+\end{equation}
+
+Aproximar con los $9$ primeros t\'erminos (hasta $n=8$).
+Es decir, calcular:
+
+
+\begin{equation}
+ sen(x) = \sum_{n=0}^{8} \frac{(-1)^n}{(2n+1)!} x^{2n+1} 
+\end{equation}
+
+Para ello:
+
+\begin{enumerate}
+
+\item Resuelva el problema para $x=0.1$.
+
+\item Realice los c\'alculos en simple precisi\'on.
+
+\item Guarde en un vector de n\'umeros enteros, las factoriales hasta $2 n_{max} + 1$, 
+siendo $n_{max}=8$. (Ayuda1: Utilice un ``do'' para ello. Ayuda2: al realizar operaciones, 
+preste atenci\'on a si est\'a trabajando con enteros o con reales).
+
+\item Calcule la suma desde $0$ hasta $n_{max}$ de los t\'erminos en orden directo.
+
+\item Calcule la suma  de los t\'erminos en orden inverso (es decir, desde $n_{max}$ hasta $0$).
+
+\item Muestre por pantalla el resultado de ambas sumas y el verdadero valor de $sin(x)$.
+
+\item Para el caso de la suma directa, vaya guardando en un archivo (llamado $seno.dat$) 
+los sucesivos pasos de la suma y el error cometido (la diferencia con el verdadero 
+valor de $sin(x)$).
+
+\item Analice cu\'al de las dos formas de sumar se aproxima m\'as 
+al resultado exacto y explique por qu\'e.
+
+\end{enumerate}
+
+
+
+\bigskip
+
+\bigskip
+
+%\newpage
+
+\noindent {\bf Ejercicios Complementarios}
+
+
+%16
+\prob{} Escriba un programa para calcular la posici\'on y la 
+velocidad en funci\'on del tiempo, para un problema de tiro oblicuo.
+Debe preguntar el \'angulo (en grados) y la velocidad 
+inicial (en m/seg.), asumiendo que el proyectil parte del origen. 
+Elija el incremento temporal ($\Delta t$) de manera que la gr\'afica
+tenga 600 puntos y abarque el intervalo entre el disparo y el instante en
+que el proyectil vuelve a tener altura 0. Utilice {\em funciones} para calcular
+la posici\'on y la velocidad. Escriba la salida del programa en un archivo
+de texto, con 5 columnas ($t$, $x(t)$, $y(t)$,$v_x(t)$,$v_y(t)$). La primera
+l\'inea debe comenzar con \#, e incluir la descripci\'on de los datos
+de cada columna. Los datos en la tabla deben tener 6 cifras significativas y
+estar escritos en notaci\'on exponencial. Grafique $x(t)$, $y(t)$ y $v_y(t)$ 
+en funci\'on de $t$, y la trayectoria del proyectil, utilizando {\em gnuplot}.
+
+
+
+
+
+
+%17 
+\prob{} Escribir un programa que pida una contrase\~na de tres d\'igitos y permita leer tres intentos.  Si el usuario da la contrase\~na correcta responde
+``Correcto'' y queda inactivo, con este mensaje.  En caso contrario el programa
+escribe ``Lo siento, contrase\~na equivocada'' y se cierra de inmediato.
+
+%18 
+\prob{} Escribir un programa que, dado un a\~no y el nombre de un mes, 
+saque por pantalla el n\'umero de d\'ias del mes (tenga en cuenta que 
+algunos a\~nos son bisiestos). 
+
+
+
+%19
+\prob{} Escriba un programa para calcular un valor aproximado de $\pi$
+utilizando 
+\begin{enumerate}
+\item la f\'ormula recurrente de Arqu\'imedes, que  acota $\pi$ entre
+$P_n$ y $p_n$, con $p_n < \pi < P_n$. Siendo $p_n$ y $P_n$ 
+los per\'imetros de los pol\'igonos regulares de $n$ lados inscriptos y 
+circunscriptos, respectivamente, en la circunsferencia de radio $1/2$. 
+La f\'ormula de recurrencia que encontr\'o Arqu\'imides es la siguiente:
+\begin{align*}
+P_{2n} = \frac{2 p_n P_n}{p_n + P_n} \\
+p_{2n} = \sqrt{P_{2n} p_n}
+\end{align*}
+Usando los valores $P_6=2\sqrt{3}$ y $p_6 = 3$, correspondientes al hex\'agono, 
+escriba un programa que realice 20 iteraciones, con $n = 6\times 2^k$, y 
+$k=1, \cdots, 20$, y escriba los resultados en pantalla.
+
+\item la productoria de Wallis
+\[
+\frac{\pi}{2} = \prod_{n=1}^\infty \frac{(2n)^2}{(2n)^2-1} =
+\frac43\frac{16}{15}\frac{36}{35}\frac{64}{63}\dots 
+%\frac21\frac23\frac43\frac45\frac65\frac67\dots 
+\]
+Calcule el valor de $\pi$ truncando la productoria a $10^6$ factores.
+
+\end{enumerate}
+
+
+
+%20
+\prob{} Escriba el siguiente programa y explique por qu\'e los valores
+obtenidos no son iguales: \\ 
+
+{\fontfamily{phv}\selectfont
+\hspace*{4cm}   program test  \\
+\hspace*{4cm}   implicit none  \\
+\hspace*{4cm}   integer, parameter   \hspace*{0.1cm}  :: pr = kind(1.0)\\
+\hspace*{4cm}   real(pr)         \hspace*{1.8cm}       :: sum0,sum1 \\
+\hspace*{4cm}   integer          \hspace*{1.9cm}     :: i  \\
+\hspace*{4cm}   ! \\
+\hspace*{4cm}   sum0 = 0.\_pr ; sum1 = 1.\_pr \\
+\hspace*{4cm}   do i=1,10000 \\
+\hspace*{4cm}   \hspace{.3cm} sum0 = sum0 + 1.e-8\_pr \\
+\hspace*{4cm}   \hspace{.3cm} sum1 = sum1 + 1.e-8\_pr \\ 
+\hspace*{4cm}   end do \\
+\hspace*{4cm}   sum0 = sum0 + 1.\_pr  \\
+\hspace*{4cm}   write(*,*) sum0, sum1  \\
+\hspace*{4cm}   end program test }
+
+
+%21
+\prob{} Dado el siguiente programa y su correspondiente subrutina:
+
+\vspace{.3cm}
+
+\begin{minipage}{0.5\textwidth}
+{\fontfamily{phv}\selectfont
+\hspace*{1cm}   program test  \\
+\hspace*{1cm}   implicit none  \\
+\hspace*{1cm}   real(kind(1.)) :: x, y,s  \\
+\hspace*{1cm}   integer        :: i,j  \\
+\hspace*{1cm}   i = 6; j = 3; x = 4.; y = 8.   \\
+\hspace*{1cm}   call sum(i,x,s)  \\
+\hspace*{1cm}   write(*,'(F4.1," + ",F4.1," = ",F5.1)') real(i),x,s   \\
+\hspace*{1cm}   end program test}
+\end{minipage}\hfill
+\begin{minipage}{0.5\textwidth}
+{\fontfamily{phv}\selectfont
+\hspace*{2cm}   \phantom{a}  \\
+\hspace*{2cm}   subroutine sum(z,w,ss)  \\
+\hspace*{2cm}   implicit none  \\
+\hspace*{2cm}   real(kind(1.)), INTENT(IN) \hspace{.3cm}  :: z, w  \\
+\hspace*{2cm}   real(kind(1.)), INTENT(OUT) :: ss  \\
+\hspace*{2cm}   ss = z + w  \\
+\hspace*{2cm}   end subroutine sum   } \\
+\end{minipage}
+
+\vspace{.3cm}
+\noindent
+Escriba, compile y ejecute el programa de las siguiente manera:
+\begin{enumerate}
+\item con el programa tal como est\'a, incluyendo la subrutina en el mismo archivo o en 
+archivo separado.
+
+\item modificando el programa con la cl\'ausula {\tt CONTAINS}, para que {\em contenga} a
+la subrutina.
+
+\item creando un modulo que contenga la subrutina, y usando este en el programa.
+
+\end{enumerate}
+
+\noindent
+Verifique que en el primer caso compila sin errores y produce {\em resultados incorrectos},
+y en los otros casos no.
+
+
+
+
+%22
+\prob{} Interprete el resultado de los siguientes programas en virtud de la representaci\'on
+de punto flotante de los n\'umeros reales.\\
+\begin{itemize}
+\item 
+{\fontfamily{phv}\selectfont
+\hspace*{4cm}  program test\textunderscore igualdad  \\
+\hspace*{4cm}  implicit none  \\
+\hspace*{4cm}  integer, parameter   \hspace*{0.5cm}  :: pr=kind(1.d0)  \hspace*{0.5 cm} ! pr puede ser simple o doble   \\ 
+
+\hspace*{4.2cm}  if (19.08\textunderscore pr + 2.01\textunderscore pr == 21.09\textunderscore pr) then  \\
+\hspace*{4.5cm}     write(*,*) '19.08 + 2.01 = 21.09 '  \\
+\hspace*{4.4cm}  else  \\
+\hspace*{4.6cm}     write(*,*) '19.08 + 2.01 /= 21.09 '  \\
+\hspace*{4.2cm}  endif  \\
+\hspace*{4cm}  end program test\textunderscore igualdad }  \\
+
+\vspace{1cm}
+
+
+\item 
+{\fontfamily{phv}\selectfont
+\hspace*{4cm}  program test\textunderscore igualdad2  \\
+\hspace*{4cm}  implicit none  \\
+\hspace*{4cm}  integer, parameter   \hspace*{0.5cm}  :: pr=kind(1.d0)  \hspace*{0.5 cm} ! pr puede ser simple o doble   \\  
+\hspace*{4cm}  real(pr)             \hspace*{0.75cm} :: a  \\ 
+
+\hspace*{4.2cm}  a = 2.05\textunderscore pr  \\
+\hspace*{4.2cm}  if (a*100.\textunderscore pr  == 205.\textunderscore pr) then  \\
+\hspace*{4.5cm}     write(*,*) '2.05*100 = 205 '  \\
+\hspace*{4.4cm}  else  \\
+\hspace*{4.6cm}     write(*,*) '2.05*100 /= 205 '  \\
+\hspace*{4.2cm}  endif  \\
+\hspace*{4cm}  end program test\textunderscore igualdad2 }  \\
+
+\end{itemize}
+%Piense el mensaje de este ejercicio, el cual debe tener presente en toda la materia.\\
+
+
+
+
+%23
+\prob{} Escriba un programa, que utilizando una subrutina, multiplique un
+vector de $N$ elementos, por una matriz de $N\times N$. El programa debe
+preguntar el valor de $N$ y luego definir los arreglos, y
+darle valores iniciales tal que, la matriz sea triangular superior, con todos
+sus elementos igual a 1, excepto los de la diagonal que toman valor 3.
+El vector tendr\'a todos sus elementos pares igual a 2, y los impares igual a 3. 
+No utilice {\tt DO} para las inicializar el vector, ni {\tt DO} anidados para
+inicializar la matriz. 
+
+
+%24
+\prob{} La f\'ormula cuadr\'atica nos dice que las ra\'ices de $ax^2 + bx + c = 0$
+son
+$$
+x_1 = \frac{-b + \sqrt{b^2 -4ac}}{2a}, \qquad \qquad x_2 =  \frac{-b - \sqrt{b^2 -4ac}}{2a} .
+$$
+\noindent
+Si $b^2\gg 4ac$, entonces, cuando $b>0$ el c\'alculo de $x_1$ involucra en el
+numerador la sustracci\'on de dos n\'umeros casi iguales, mientras que si $b<0$,
+esta situaci\'on ocurre para el c\'alculo de $x_2$. ``Racionalizando el numerador''
+se obtienen las siguientes f\'ormulas alternativas que no sufren este problema:
+$$
+x_1 = \frac{-2c}{b + \sqrt{b^2 -4ac}}, \qquad \qquad x_2 =  \frac{2c}{-b + \sqrt{b^2 -4ac}} ,
+$$
+\noindent
+siendo la primera adecuada cuando $b>0$, y la segunda cuando $b<0$.
+Escriba un programa en precisi\'on simple que utilice la f\'ormula usual y la 
+``racionalizada'' para calcular las ra\'ices de
+$$
+x^2 + 6210 x + 1 = 0.
+$$
+\noindent 
+Interprete los resultados.
+
+\bigskip
+
+ 
+\end{document}
+

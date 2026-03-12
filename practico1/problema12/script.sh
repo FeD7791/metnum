@@ -1,0 +1,1 @@
+gfortran parameters.f90 functions.f90 problema12.f90 -o prob12.x
