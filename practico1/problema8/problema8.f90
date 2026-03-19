@@ -8,5 +8,5 @@ program problema8
 
     call baskhara_(a,b,c,x1,x2)
 
-    write(s, '(F4.1,"+",F4.1,"i")') x1,x2
+    write(*, '(F4.1,"+",F4.1,"i")') x1,x2
 end program problema8
