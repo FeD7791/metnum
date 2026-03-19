@@ -1,0 +1,1 @@
+gfortran precision.f90 utilidades.f90 main_program.f90 -o program.x
