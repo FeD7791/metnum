@@ -84,7 +84,7 @@
 
   <subsection|Agregar documentacion>
 
-  \;
+  Es util agregar algun tipo de documentacion para el programa.
 </body>
 
 <\initial>
