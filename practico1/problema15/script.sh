@@ -1,0 +1,1 @@
+gfortran modulos.f90 main.f90 -o out.x

@@ -1,0 +1,1 @@
+gfortran /home/jorgefederico/Fede/metnum/otherdir/metnum/practico1/modulos_globales/precision.f90 /home/jorgefederico/Fede/metnum/otherdir/metnum/practico1/problema14/main.f90 -o prob14.x
