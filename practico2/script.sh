@@ -1,0 +1,1 @@
+gfortran metodos_raices.f90 main.f90 -o prog.x
