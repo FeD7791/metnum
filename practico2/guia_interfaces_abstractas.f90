@@ -29,7 +29,7 @@ contains
     function apply_function(f, x) result(res)
         real, intent(in) :: x
         real :: res
-        procedure(func) :: f   ! <- usa la interfaz abstracta
+        procedure(funcion_tipo) :: f   ! <- usa la interfaz abstracta
 
         res = f(x)
     end function apply_function
